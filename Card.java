@@ -1,64 +1,63 @@
-
+import java.util.Collections;
 
 /**
  * Created by phadkep on 7/28/2016.
  */
 
-public class Card {
+public class Card implements Comparable {
 
-    int rank;
-    int suit;
+    private int pip;
+    private int suit;
 
-    private static String[] suits = { "HEARTS", "SPADES", "DIAMONDS", "CLUBS" };
+    private static String[] suits = { "HEARTS", "DIAMONDS", "SPADES", "CLUBS","JOKER" };
     private static String[] ranks  = { "Ace", "2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King" };
 
 
-    public static String rankAsString( int __rank ) {
-
-        return ranks[__rank];
-
+    public static String rankAsString() {
+        return null;
     }
 
+    public static String rankAsString(int pip ) {
+        return ranks[pip];
+    }
 
-
-    Card(short suit, short rank)
-
-    {
-
-        this.rank=rank;
-
+    Card(int suit, int pip) {
+        this.pip=pip;
         this.suit=suit;
-
     }
 
-
-
-    public String toString()
-
-    {
-
-        return ranks[rank] + " of " + suits[suit];
-
+    public String toString() {
+        if(suit ==4)
+            return suits[suit];
+        else
+            return ranks[pip] + " of " + suits[suit];
     }
 
-
-
-    public int getRank() {
-
-        return rank;
-
+    public int getPip() {
+        return pip;
     }
-
-
 
     public int getSuit() {
-
         return suit;
-
     }
 
 
-
+    @Override
+    public int compareTo(Object c) {
+        int value;
+        if(this.getSuit() < ((Card)c).getSuit())
+            return -1;
+        else if(this.getSuit() > ((Card)c).getSuit())
+            return 1;
+        else{
+            if(this.getPip() < ((Card)c).getPip())
+               return -1;
+            else if(this.getPip() > ((Card)c).getPip())
+                return 1;
+            else
+                return 0;
+        }
+    }
 
 }
 
