@@ -1,8 +1,4 @@
 import java.util.Collections;
-//
-/**
- * Created by phadkep on 7/28/2016.
- */
 
 public class Card implements Comparable {
 
@@ -51,7 +47,7 @@ public class Card implements Comparable {
             return 1;
         else{
             if(this.getPip() < ((Card)c).getPip())
-               return -1;
+                return -1;
             else if(this.getPip() > ((Card)c).getPip())
                 return 1;
             else
@@ -60,5 +56,3 @@ public class Card implements Comparable {
     }
 
 }
-
-

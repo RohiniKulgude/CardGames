@@ -1,9 +1,9 @@
+
+import javax.smartcardio.Card;
 import java.util.ArrayList;
 import java.util.Collections;
 
-/**
- * Created by ashoka on 7/28/2016.
- */
+
 public class Rummy {
     ArrayList<Card> Hand = new ArrayList<>();
 
@@ -12,6 +12,7 @@ public class Rummy {
     }
 
     public int HandStatus(){
+
         Collections.sort(Hand);
         ArrayList<Card> spades = new ArrayList<>();
         ArrayList<Card> clubs = new ArrayList<>();
@@ -41,12 +42,12 @@ public class Rummy {
         for(int i = 0 ; i < hearts.size()-1;i++)
             if(hearts.get(i+1).getPip()- hearts.get(i).getPip() != 1)
                 //while(hearts.get(i).getPip()<hearts.get(i+1).getPip()){
-                  //  CardRequiredforSequence.add(hearts.get());
+                //  CardRequiredforSequence.add(hearts.get());
                 //}
 
-        for(int i = 0 ; i < diamonds.size()-1;i++)
-            if(diamonds.get(i+1).getPip()- diamonds.get(i).getPip() != 1)
-                cardsrequired++;
+                for(int i = 0 ; i < diamonds.size()-1;i++)
+                    if(diamonds.get(i+1).getPip()- diamonds.get(i).getPip() != 1)
+                        cardsrequired++;
         for(int i = 0 ; i < spades.size()-1;i++)
             if(spades.get(i+1).getPip()- spades.get(i).getPip() != 1)
                 cardsrequired++;
